@@ -2,23 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Lake(name) {
-  return (
-    <h1>Name of Lake: {name}</h1>
-  );
-}
+const lakeList = [
+  { id: '1', name: 'Lake Huron', trailhead: 'huron' },
+  { id: '2', name: 'Lake Ontario', trailhead: 'Ontario' },
+  { id: '3', name: 'Some Big Lakes', trailhead: 'Biglakes' },
+];
 
-function App() {
+function App({ lakes }) {
   return (
     <div>
-      <Lake name='Lake Ontario' />
-      <Lake name='Lake Huron' />
-      <Lake name='Some Lake' />
+
+      {lakes.map(lake =>
+        <div key={lake.id}>
+          <h2>{lake.name}</h2>
+          <p>Accessed By: {lake.trailhead}</p>
+        </div>)}
+
     </div>
   );
 }
 
 ReactDOM.render(
-  <App />,
+  <App lakes={lakeList} />,
   document.getElementById("root"),
 );
