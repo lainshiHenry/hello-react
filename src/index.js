@@ -2,6 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const [first, , third] = [ //items in const [] are variables, can be used instead of indexing them
+  'popcorn',
+  'pretzels',
+  'pineapple',
+];
+
+console.log(first);
+console.log(third);
+
 function Lake() {
   return (
     <h1>Visit the Lake!</h1>
