@@ -2,11 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+function Hello() {
+  return (
+    <div>
+      <h1>Welcome to React!</h1>
+      <p>Let's build something cool.</p>
+      <ul>
+        <li>Good Food</li>
+        <li>Honey Water</li>
+        <li>Sushi</li>
+      </ul>
+    </div>
+  );
+}
+
 ReactDOM.render(
-  <ul>
-    <li>Hamburger</li>
-    <li>Pasta</li>
-    <li>Soup</li>
-  </ul>,
+  <Hello />,
   document.getElementById("root"),
 );
