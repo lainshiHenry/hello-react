@@ -1,38 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const [first, , third] = [ //items in const [] are variables, can be used instead of indexing them
-  'popcorn',
-  'pretzels',
-  'pineapple',
-];
-
-console.log(first);
-console.log(third);
-
-function Lake() {
-  return (
-    <h1>Visit the Lake!</h1>
-  );
-}
-
-function SkiResort() {
-  return (
-    <h1>Visit the Ski Resort!</h1>
-
-  );
-}
-
 
 function App() {
+  const [status, setStatus] = useState("Open");  //hooks to add functionality to functoin
+  /*
+    status = state variable name
+    setStatus = function to change the state variable
+  */
+  const [manager, setManager] = useState('Alex');
+  const [year, setYear] = useState(2050);
+
   return (
-    <React.Fragment>
-      <Lake />
-      <SkiResort />
-    </React.Fragment>
+    <>
+      <div>
+        <h1>Year: {year}</h1>
+        <button onClick={() => setYear(year + 1)}>New Year</button>
+      </div>
+      <div>
+        <h1>Manager on Duty: {manager}</h1>
+        <button onClick={() => setManager('Bob')}>Bob</button>
+        <button onClick={() => setManager('Rachael')}>Rachael</button>
+      </div>
+      <div>
+        <h1>Status: {status}</h1>
+        <button onClick={() => setStatus('Open')}>Open</button>
+        <button onClick={() => setStatus('Closed')}>Closed</button>
+        <button onClick={() => setStatus('Back In 5')}>Back in 5</button>
+      </div>
+    </>
   );
-}
+};
 
 ReactDOM.render(
   <App />,
