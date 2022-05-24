@@ -1,38 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function GitHubUser({ login }) {
-  const [data, setData] = useState(null);
-  let apiCallURL = 'https://api.github.com/users/' + login;
+function Checkbox() {
+  const [checked, toggle] = useReducer(checked => !checked, false);
 
-  useEffect(() => {
-    fetch(apiCallURL)
-      .then(res => res.json())
-      .then(setData)
-      .catch(console.error);
-  }, []);
-
-  if (data) {
-    return (
-      <div>
-        <h1>{data.login}</h1>
-        <img src={data.avatar_url} width={150} />
-      </div>
-    );
-  } else {
-    return null;
-  }
-
-}
-
-function App() {
   return (
-    <GitHubUser login='lainshiHenry' />
+    <>
+      <input type='checkbox' value={checked} onChange={toggle} />
+      {checked ? 'checked' : 'not checked'}
+    </>
   );
+
 }
 
 ReactDOM.render(
-  <App />,
+  <Checkbox />,
   document.getElementById("root"),
 );  
